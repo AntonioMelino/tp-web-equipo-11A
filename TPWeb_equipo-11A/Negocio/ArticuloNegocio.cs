@@ -52,6 +52,78 @@ namespace TrabajoPracticoWinForm
             }
         }
 
+        public List<Articulo> listarConSp()
+        {
+            List<Articulo> lista = new List<Articulo>();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                string consulta = "SELECT A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion as NombreMarca, C.Descripcion as NombreCategoria, Precio, (SELECT TOP 1 ImagenUrl FROM IMAGENES WHERE IdArticulo = A.Id) as ImagenUrl, A.IdMarca, A.IdCategoria FROM ARTICULOS as A JOIN CATEGORIAS AS C ON A.IdCategoria = C.Id JOIN MARCAS AS M ON A.IdMarca = M.Id";
+                
+                //consulta += " GROUP BY A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion, C.Descripcion, Precio, A.IdMarca, A.IdCategoria";
+
+                datos.setearConsulta(consulta);
+                datos.ejecutarLectura();
+
+                //while (datos.Lector.Read())
+                //{
+                //    Articulo aux = new Articulo();
+                //    aux.Marca = new Marca();
+                //    aux.Categoria = new Categoria();
+                //    aux.Imagen = new Imagen();
+                //    aux.ID = (int)datos.Lector["Id"];
+                //    aux.Codigo = (string)datos.Lector["Codigo"];
+                //    aux.Nombre = (string)datos.Lector["Nombre"];
+                //    aux.Descripcion = (string)datos.Lector["Descripcion"];
+                //    aux.Marca.ID = (int)datos.Lector["IdMarca"];
+                //    aux.Marca.Descripcion = datos.Lector["NombreMarca"].ToString();
+                //    aux.Categoria.ID = (int)datos.Lector["IdCategoria"];
+                //    aux.Categoria.Descripcion = datos.Lector["NombreCategoria"].ToString();
+                //    aux.Precio = (decimal)datos.Lector["Precio"];
+                //    aux.Imagen.ImagenUrl = (string)datos.Lector["ImagenUrl"];
+                //    lista.Add(aux);
+                //}
+                while (datos.Lector.Read())
+                {
+                    Articulo aux = new Articulo();
+                    aux.Marca = new Marca();
+                    aux.Categoria = new Categoria();
+                    aux.Imagen = new Imagen();
+
+                    aux.ID = (int)datos.Lector["Id"];
+                    aux.Codigo = datos.Lector["Codigo"] != DBNull.Value ? (string)datos.Lector["Codigo"] : string.Empty;
+                    aux.Nombre = datos.Lector["Nombre"] != DBNull.Value ? (string)datos.Lector["Nombre"] : string.Empty;
+                    aux.Descripcion = datos.Lector["Descripcion"] != DBNull.Value ? (string)datos.Lector["Descripcion"] : string.Empty;
+
+                    aux.Marca.ID = (int)datos.Lector["IdMarca"];
+                    aux.Marca.Descripcion = datos.Lector["NombreMarca"].ToString();
+
+                    aux.Categoria.ID = (int)datos.Lector["IdCategoria"];
+                    aux.Categoria.Descripcion = datos.Lector["NombreCategoria"].ToString();
+
+                    if (datos.Lector["Precio"] != DBNull.Value)
+                    {
+                        aux.Precio = (decimal)datos.Lector["Precio"];
+                    }
+                    else
+                    {
+                        aux.Precio = 0;
+                    }
+
+                    aux.Imagen.ImagenUrl = datos.Lector["ImagenUrl"] != DBNull.Value ? (string)datos.Lector["ImagenUrl"] : string.Empty;
+
+                    lista.Add(aux);
+                }
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public void agregar(Articulo nuevo)
         {
             AccesoDatos datos = new AccesoDatos();

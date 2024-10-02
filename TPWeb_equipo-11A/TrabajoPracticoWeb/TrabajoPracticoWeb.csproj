@@ -70,6 +70,7 @@
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
+    <Content Include="ArticulosLista.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Default.aspx.cs">
@@ -89,6 +90,13 @@
     </Compile>
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ArticulosLista.aspx.cs">
+      <DependentUpon>ArticulosLista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ArticulosLista.aspx.designer.cs">
+      <DependentUpon>ArticulosLista.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
