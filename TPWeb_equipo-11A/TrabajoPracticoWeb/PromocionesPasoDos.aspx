@@ -6,42 +6,27 @@
     <h1>Elegí tu premio</h1>
 
     <div class="row row-cols-1 row-cols-md-2 g-4">
+
+    <% 
+        foreach (Dominio.Articulo arti in ListaArticulos)
+        {
+    
+    %>
+
+        
         <div class="col">
             <div class="card">
-                <img src="..." class="card-img-top" alt="...">
+                <img src="<%: arti.Imagen %>" class="card-img-top" alt="..." style="width: 300px; height: 200px; object-fit: contain; background-color: #ffffff;">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <h5 class="card-title"><%: arti.Nombre %></h5>
+                    <p class="card-text"><%: arti.Descripcion %></p>
+                    <a href="PromocionesPasoTres.aspx?id=<%: arti.ID %>" class="btn btn-primary">Lo quiero!</a>
                 </div>
             </div>
         </div>
-        <div class="col">
-            <div class="card">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+   
+        <% } %>
+
+         </div>
 
 </asp:Content>

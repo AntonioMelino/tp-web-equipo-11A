@@ -51,14 +51,14 @@
         </div>
         <div class="col-md-3">
             <label for="validationCustom05" class="form-label">Código postal</label>
-            <input type="text" class="form-control" id="validationCustom05" required>
+            <input type="text" class="form-control" id="validationCustom05" placeholder="Ingrese su código postal" required>
             <div class="invalid-feedback">
                 Por favor ingrese un código postal válido.
             </div>
         </div>
         <div class="col-12">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" placeholder="Ingrese su código postal" required>
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
                 <label class="form-check-label" for="invalidCheck">
                     Acepto los términos y condiciones.
                 </label>
@@ -69,6 +69,7 @@
         </div>
         <div class="col-12">
             <button class="btn btn-primary" type="submit">Participar!</button>
+            <a href="PromocionesPasoDos.aspx" class="btn btn-primary">Atrás</a>
         </div>
     </div>
 
