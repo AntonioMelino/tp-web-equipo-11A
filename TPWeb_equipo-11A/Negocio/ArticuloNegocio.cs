@@ -59,11 +59,14 @@ namespace TrabajoPracticoWinForm
 
             try
             {
-                string consulta = "SELECT A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion as NombreMarca, C.Descripcion as NombreCategoria, Precio, (SELECT TOP 1 ImagenUrl FROM IMAGENES WHERE IdArticulo = A.Id) as ImagenUrl, A.IdMarca, A.IdCategoria FROM ARTICULOS as A JOIN CATEGORIAS AS C ON A.IdCategoria = C.Id JOIN MARCAS AS M ON A.IdMarca = M.Id";
-                
+                //string consulta = "SELECT A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion as NombreMarca, C.Descripcion as NombreCategoria, Precio, (SELECT TOP 1 ImagenUrl FROM IMAGENES WHERE IdArticulo = A.Id) as ImagenUrl, A.IdMarca, A.IdCategoria FROM ARTICULOS as A JOIN CATEGORIAS AS C ON A.IdCategoria = C.Id JOIN MARCAS AS M ON A.IdMarca = M.Id";
+
                 //consulta += " GROUP BY A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion, C.Descripcion, Precio, A.IdMarca, A.IdCategoria";
 
-                datos.setearConsulta(consulta);
+                //datos.setearConsulta(consulta);
+
+                datos.setearProcedimiento("storedListarArticulos");
+
                 datos.ejecutarLectura();
 
                 //while (datos.Lector.Read())
