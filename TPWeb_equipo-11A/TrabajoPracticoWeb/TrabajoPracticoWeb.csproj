@@ -65,6 +65,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CatalogoArticulos.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="PromocionesPasoDos.aspx" />
@@ -74,6 +75,13 @@
     <Content Include="Promociones.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CatalogoArticulos.aspx.cs">
+      <DependentUpon>CatalogoArticulos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CatalogoArticulos.aspx.designer.cs">
+      <DependentUpon>CatalogoArticulos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
