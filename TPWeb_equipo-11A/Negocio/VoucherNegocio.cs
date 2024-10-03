@@ -49,5 +49,27 @@ namespace Negocio
         //    }
 
         //    return aux;
+
+        public void participar(int codart, string codvoucher, int idcliente)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("INSERT INTO Vouchers VALUES (@codvoucher, @codart, @idcliente");
+                datos.setearParametro("@codvoucher", codvoucher);
+                datos.setearParametro("@codart", codart);
+                datos.setearParametro("@idcliente", idcliente);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+        }
     }
 }

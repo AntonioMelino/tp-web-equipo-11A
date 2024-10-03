@@ -77,9 +77,10 @@
             <div class="row g-3 needs-validation" novalidate>
                 <div class="col-12">
                     <label for="validationCustom00" class="form-label">Documento</label>
-                    <asp:TextBox ID="txtDocumento" CssClass="form-control" placeholder="Ingrese su DNI" required runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtDocumento" OnTextChanged="txtDocumento_TextChanged" CssClass="form-control" placeholder="Ingrese su DNI" AutoPostBack=true required runat="server"></asp:TextBox>
                     <div class="valid-feedback">Looks good!</div>
                 </div>
+                <asp:Label ID="lblMensaje" runat="server" CssClass="text-danger mt-2" Visible="false"></asp:Label>
                 <div class="col-md-4">
                     <label for="validationCustom01" class="form-label">Nombre</label>
                     <asp:TextBox ID="txtNombre" CssClass="form-control" placeholder="Ingrese su nombre" required runat="server"></asp:TextBox>
@@ -125,5 +126,7 @@
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="modal2" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+</div>
 
 </asp:Content>
