@@ -11,25 +11,16 @@ namespace TrabajoPracticoWeb
 {
 
 
-    public partial class WebForm2
+    public partial class ClientesLista
     {
 
         /// <summary>
-        /// Control btnVerificarCodigo.
+        /// Control dgvClientes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVerificarCodigo;
-
-        /// <summary>
-        /// Control btnAtras.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAtras;
+        protected global::System.Web.UI.WebControls.GridView dgvClientes;
     }
 }

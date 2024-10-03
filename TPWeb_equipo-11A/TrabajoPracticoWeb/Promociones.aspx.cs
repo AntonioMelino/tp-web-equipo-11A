@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Dominio;
 using Negocio;
 
 //namespace TrabajoPracticoWeb
@@ -31,7 +32,7 @@ namespace TrabajoPracticoWeb
 
         protected void btnVerificarCodigo_Click(object sender, EventArgs e)
         {
-            string codigo = txtCodigoPromocional.Text; 
+            string codigo = txtCodigoPromocional.Text;
             if (VoucherNegocio.VerificarCodigo(codigo)) 
             {
                 Response.Redirect("PromocionesPasoDos.aspx?codigo=" + codigo); 

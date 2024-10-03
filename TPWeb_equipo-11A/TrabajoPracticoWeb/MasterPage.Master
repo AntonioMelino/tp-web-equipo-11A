@@ -28,7 +28,7 @@
                                 <a class="nav-link" href="Promociones.aspx">Promociones</a>
                                 <a class="nav-link" href="CatalogoArticulos.aspx">Nuestro catálogo</a>
                                 <a class="nav-link" href="ArticulosLista.aspx">Lista Articulos</a>
-                                <a class="nav-link" href="#">Lista Clientes</a>
+                                <a class="nav-link" href="ClientesLista.aspx">Lista Clientes</a>
                                 <a class="nav-link disabled" aria-disabled="true">Disabled</a>
                             </div>
                         </div>

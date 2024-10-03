@@ -6,7 +6,7 @@
     <h1>Ingresá tus datos</h1>
 
 
-    <div class="row g-3 needs-validation" novalidate>
+    <%--<div class="row g-3 needs-validation" novalidate>
         <div class="col-12">
             <label for="validationCustom01" class="form-label">Documento</label>
             <input type="text" class="form-control" id="validationCustom00" placeholder="Ingrese su DNI" required>
@@ -68,9 +68,62 @@
             </div>
         </div>
         <div class="col-12">
-            <button class="btn btn-primary" type="submit">Participar!</button>
+            <asp:Button ID="btnParticipar" OnClick="btnParticipar_Click" runat="server" Text="Button" />
             <a href="PromocionesPasoDos.aspx" class="btn btn-primary">Atrás</a>
         </div>
-    </div>
+    </div>--%>
+
+    <div class="container">
+            <div class="row g-3 needs-validation" novalidate>
+                <div class="col-12">
+                    <label for="validationCustom00" class="form-label">Documento</label>
+                    <asp:TextBox ID="txtDocumento" CssClass="form-control" placeholder="Ingrese su DNI" required runat="server"></asp:TextBox>
+                    <div class="valid-feedback">Looks good!</div>
+                </div>
+                <div class="col-md-4">
+                    <label for="validationCustom01" class="form-label">Nombre</label>
+                    <asp:TextBox ID="txtNombre" CssClass="form-control" placeholder="Ingrese su nombre" required runat="server"></asp:TextBox>
+                    <div class="valid-feedback">Looks good!</div>
+                </div>
+                <div class="col-md-4">
+                    <label for="validationCustom02" class="form-label">Apellido</label>
+                    <asp:TextBox ID="txtApellido" CssClass="form-control" placeholder="Ingrese su apellido" required runat="server"></asp:TextBox>
+                    <div class="valid-feedback">Looks good!</div>
+                </div>
+                <div class="col-md-4">
+                    <label for="validationCustomUsername" class="form-label">Correo electrónico</label>
+                    <div class="input-group has-validation">
+                        <span class="input-group-text" id="inputGroupPrepend">@</span>
+                        <asp:TextBox ID="txtEmail" CssClass="form-control" placeholder="Ingrese su email" required runat="server"></asp:TextBox>
+                        <div class="invalid-feedback">Por favor use una dirección de correo válida.</div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <label for="inputAddress" class="form-label">Dirección</label>
+                    <asp:TextBox ID="txtDireccion" CssClass="form-control" placeholder="Ingrese su dirección" runat="server"></asp:TextBox>
+                </div>
+                <div class="col-md-6">
+                    <label for="validationCustom03" class="form-label">Ciudad</label>
+                    <asp:TextBox ID="txtCiudad" CssClass="form-control" placeholder="Ingrese su ciudad" required runat="server"></asp:TextBox>
+                    <div class="invalid-feedback">Por favor ingrese una ciudad válida.</div>
+                </div>
+                <div class="col-md-3">
+                    <label for="validationCustom05" class="form-label">Código postal</label>
+                    <asp:TextBox ID="txtCodigoPostal" CssClass="form-control" placeholder="Ingrese su código postal" required runat="server"></asp:TextBox>
+                    <div class="invalid-feedback">Por favor ingrese un código postal válido.</div>
+                </div>
+                <div class="col-12">
+                    <div class="form-check">
+                        <asp:CheckBox ID="chkTerminos" CssClass="form-check-input" required runat="server" />
+                        <label class="form-check-label" for="invalidCheck">Acepto los términos y condiciones.</label>
+                        <div class="invalid-feedback">Debes aceptar los términos y condiciones.</div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <asp:Button ID="btnParticipar" OnClick="btnParticipar_Click" runat="server" Text="Participar" CssClass="btn btn-primary" />
+                    <a href="PromocionesPasoDos.aspx?codigo=<%: urlCodVoucher %>" class="btn btn-secondary">Atrás</a>
+                </div>
+            </div>
+        </div>
 
 </asp:Content>

@@ -13,10 +13,19 @@ namespace TrabajoPracticoWeb
     public partial class PromocionesPasoDos : System.Web.UI.Page
     {
         public List<Articulo> ListaArticulos { get; set; }
+        public string codigo { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            ArticuloNegocio negocio = new ArticuloNegocio();
-            ListaArticulos = negocio.listarConSp();
+            if (Request.QueryString["codigo"].ToString() != null)
+            {
+                ArticuloNegocio negocio = new ArticuloNegocio();
+                ListaArticulos = negocio.listarConSp();
+                codigo = Request.QueryString["codigo"].ToString();
+            }
+
+
+
+
         }
     }
 }
