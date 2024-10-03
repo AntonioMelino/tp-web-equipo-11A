@@ -74,5 +74,31 @@ namespace Negocio
                 lector.Close();
             conexion.Close();
         }
+
+        public object ejecutarEscalar()
+        {
+            comando.Connection = conexion;
+            try
+            {
+                conexion.Open();
+                return comando.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
+
+        public bool VerificarCodigo(string codigo)
+        {
+            setearConsulta("SELECT COUNT(*) FROM Vouchers WHERE CodigoVoucher = @Codigo AND FechaCanje IS NULL");
+            setearParametro("@Codigo", codigo);
+            int count = (int)ejecutarEscalar();
+            return count > 0;
+        }
     }
 }

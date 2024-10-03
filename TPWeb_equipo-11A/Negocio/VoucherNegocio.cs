@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Negocio
 {
-    internal class VoucherNegocio
+    public class VoucherNegocio // Cambiado de 'internal' a 'public'
     {
+        public static bool VerificarCodigo(string codigo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            return datos.VerificarCodigo(codigo);
+        }
     }
 }
