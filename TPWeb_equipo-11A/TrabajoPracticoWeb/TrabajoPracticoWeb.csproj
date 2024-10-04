@@ -69,6 +69,7 @@
     <Content Include="ClientesLista.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Imagenes.aspx" />
     <Content Include="PromocionesPasoDos.aspx" />
     <Content Include="PromocionesPasoTres.aspx" />
     <Content Include="Web.config" />
@@ -99,6 +100,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Imagenes.aspx.cs">
+      <DependentUpon>Imagenes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Imagenes.aspx.designer.cs">
+      <DependentUpon>Imagenes.aspx</DependentUpon>
     </Compile>
     <Compile Include="PromocionesPasoDos.aspx.cs">
       <DependentUpon>PromocionesPasoDos.aspx</DependentUpon>

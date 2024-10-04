@@ -353,9 +353,40 @@ namespace TrabajoPracticoWinForm
             catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
         }
- 
+
+        public Articulo buscar(int codigo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("SELECT * FROM ARTICULOS WHERE Id = @codigo");
+                datos.setearParametro("@codigo", codigo);
+                datos.ejecutarLectura();
+                Articulo art = new Articulo();
+                if (datos.Lector.Read())
+                {
+                    
+                    art.Marca = new Marca();
+                    art.Categoria = new Categoria();
+                    art.ID = (int)datos.Lector["Id"];
+                    art.Codigo = (string)datos.Lector["Codigo"];
+                    art.Nombre = (string)datos.Lector["Nombre"];
+                    art.Descripcion = (string)datos.Lector["Descripcion"];
+                    art.Marca.ID = (int)datos.Lector["IdMarca"];
+                    art.Categoria.ID = (int)datos.Lector["IdCategoria"];
+                    art.Precio = (decimal)datos.Lector["Precio"];    
+                }
+                return art;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
     }
 }

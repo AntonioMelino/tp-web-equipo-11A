@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Negocio;
 using Dominio;
 using TrabajoPracticoWinForm;
+using System.Text;
 
 namespace TrabajoPracticoWeb
 {
@@ -22,10 +23,6 @@ namespace TrabajoPracticoWeb
                 ListaArticulos = negocio.listarConSp();
                 codigo = Request.QueryString["codigo"].ToString();
             }
-
-
-
-
         }
     }
 }

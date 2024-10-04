@@ -22,6 +22,7 @@
                     <p class="card-text"><%: arti.Descripcion %></p>
                     <%--<a href="PromocionesPasoTres.aspx?id=<%: arti.ID %>+codigo=<%codigo%>" class="btn btn-primary">Lo quiero!</a>--%>
                     <a href="PromocionesPasoTres.aspx?id=<%: arti.ID %>&codigo=<%: codigo %>" class="btn btn-primary">Lo quiero!</a>
+                    <a href="Imagenes.aspx?id=<%: arti.ID %>&codigo=<%: codigo %>" class="btn btn-primary">Ver mas imagenes</a>
                 </div>
             </div>
         </div>

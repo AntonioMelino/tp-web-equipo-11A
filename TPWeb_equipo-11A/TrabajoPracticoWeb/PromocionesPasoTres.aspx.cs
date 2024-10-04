@@ -45,6 +45,7 @@ namespace TrabajoPracticoWeb
             objCliente.CP = int.Parse(txtCodigoPostal.Text);
 
             int clienteId = clienteNegocio.AgregarCliente(objCliente);
+            objCliente.ID = clienteId;
             Session["ClienteId"] = clienteId;  
             Session["objCliente"] = objCliente;  
 
@@ -75,6 +76,7 @@ namespace TrabajoPracticoWeb
                 txtEmail.Text = objCliente.Email;
                 btnDarAltaCliente.Visible = false;
                 btnParticipar.Visible = true;
+                Session["objCliente"] = objCliente;
             }
             else
             {
