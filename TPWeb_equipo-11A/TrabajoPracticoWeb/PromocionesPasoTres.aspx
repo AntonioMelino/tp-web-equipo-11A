@@ -56,7 +56,7 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    <asp:Button ID="btnDarAltaCliente" runat="server" Text="Dar de Alta Cliente" OnClick="btnDarAltaCliente_Click" CssClass="btn btn-secondary" Visible="false" />
+
                     <asp:Button ID="btnParticipar" runat="server" Text="Participar" OnClick="btnParticipar_Click" CssClass="btn btn-primary" />
                     <a href="PromocionesPasoDos.aspx?codigo=<%: urlCodVoucher %>" class="btn btn-secondary">Atrás</a>
                 </div>

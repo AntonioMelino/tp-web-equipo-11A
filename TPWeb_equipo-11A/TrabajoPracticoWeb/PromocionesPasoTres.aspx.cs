@@ -32,35 +32,78 @@ namespace TrabajoPracticoWeb
             urlCodVoucher = Request.QueryString["codigo"].ToString();
         }
 
-        protected void btnDarAltaCliente_Click(object sender, EventArgs e)
-        {
-            ClienteNegocio clienteNegocio = new ClienteNegocio();
-            objCliente = new Cliente();  
-            objCliente.Documento = txtDocumento.Text;
-            objCliente.Nombre = txtNombre.Text;
-            objCliente.Apellido = txtApellido.Text;
-            objCliente.Email = txtEmail.Text;
-            objCliente.Direccion = txtDireccion.Text;
-            objCliente.Ciudad = txtCiudad.Text;
-            objCliente.CP = int.Parse(txtCodigoPostal.Text);
 
-            int clienteId = clienteNegocio.AgregarCliente(objCliente);
-            objCliente.ID = clienteId;
-            Session["ClienteId"] = clienteId;  
-            Session["objCliente"] = objCliente;  
-
-            DeshabilitarCampos();
-            btnParticipar.Visible = true;
-        }
 
         protected void btnParticipar_Click(object sender, EventArgs e)
         {
+            ClienteNegocio clienteNegocio = new ClienteNegocio();
             VoucherNegocio voucherNegocio = new VoucherNegocio();
-            int clienteId = objCliente.ID > 0 ? objCliente.ID : (int)Session["ClienteId"];           
-            voucherNegocio.ActualizarVoucher(urlCodVoucher, clienteId, int.Parse(urlCodigoArt));
-            //Response.Redirect("Default.aspx");
+
+            string dni = txtDocumento.Text;
+            bool esValido = true;
+            string mensajeError = "";
+
+            if (!int.TryParse(txtDocumento.Text, out _))
+            {
+                esValido = false;
+                mensajeError += "El documento debe contener solo números. ";
+            }
+
+            if (!EsCodigoPostalValido(txtCodigoPostal.Text))
+            {
+                esValido = false;
+                mensajeError += "El código postal debe contener solo letras y números. ";
+            }
+
+            if (!txtEmail.Text.Contains("@"))
+            {
+                esValido = false;
+                mensajeError += "Ingrese un correo electrónico válido. ";
+            }
+
+            if (!chkTerminos.Checked)
+            {
+                esValido = false;
+                mensajeError += "Debe aceptar los términos y condiciones para continuar. ";
+            }
+
+            if (!esValido)
+            {
+                lblMensaje.Text = mensajeError;
+                lblMensaje.Visible = true;
+                return;  
+            }
+
+            if (clienteNegocio.existe(dni))
+            {
+                objCliente = clienteNegocio.traerCliente(dni);
+            }
+            else
+            {
+                objCliente = new Cliente();
+                objCliente.Documento = txtDocumento.Text;
+                objCliente.Nombre = txtNombre.Text;
+                objCliente.Apellido = txtApellido.Text;
+                objCliente.Email = txtEmail.Text;
+                objCliente.Direccion = txtDireccion.Text;
+                objCliente.Ciudad = txtCiudad.Text;
+                objCliente.CP = int.Parse(txtCodigoPostal.Text);
+
+
+                int clienteId = clienteNegocio.AgregarCliente(objCliente);
+                objCliente.ID = clienteId;
+
+                Session["ClienteId"] = clienteId;
+                Session["objCliente"] = objCliente;
+            }
+
+            int clienteIdFinal = objCliente.ID > 0 ? objCliente.ID : (int)Session["ClienteId"];
+            voucherNegocio.ActualizarVoucher(urlCodVoucher, clienteIdFinal, int.Parse(urlCodigoArt));
+
             Response.Redirect("PromocionesPasoCuatro.aspx");
         }
+
+
 
         protected void txtDocumento_TextChanged(object sender, EventArgs e)
         {
@@ -70,8 +113,7 @@ namespace TrabajoPracticoWeb
             if (string.IsNullOrWhiteSpace(dni))
             {
                 lblMensaje.Visible = false;
-                HabilitarCampos();
-                btnDarAltaCliente.Visible = false;
+                HabilitarCampos();               
                 btnParticipar.Visible = false;
                 return;
             }
@@ -85,9 +127,9 @@ namespace TrabajoPracticoWeb
                 txtCiudad.Text = objCliente.Ciudad;
                 txtCodigoPostal.Text = objCliente.CP.ToString();
                 txtEmail.Text = objCliente.Email;
+
                 DeshabilitarCamposDoc();
                 lblMensaje.Visible = false;
-                btnDarAltaCliente.Visible = false;
                 btnParticipar.Visible = true;
                 Session["objCliente"] = objCliente;
             }
@@ -101,9 +143,9 @@ namespace TrabajoPracticoWeb
                 txtCiudad.Text = "";
                 txtCodigoPostal.Text = "";
                 txtEmail.Text = "";
+
                 HabilitarCampos();
-                btnDarAltaCliente.Visible = true;
-                btnParticipar.Visible = false;
+                btnParticipar.Visible = true;
             }
         }
 
@@ -141,6 +183,18 @@ namespace TrabajoPracticoWeb
             txtDireccion.Enabled = true;
             txtCiudad.Enabled = true;
             txtCodigoPostal.Enabled = true;
+        }
+
+        protected bool EsCodigoPostalValido(string codigoPostal)
+        {
+            foreach (char c in codigoPostal)
+            {
+                if (!char.IsLetterOrDigit(c))
+                {
+                    return false; 
+                }
+            }
+            return true;
         }
     }
 }
