@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Dominio;
 
 namespace Negocio
 {
@@ -17,7 +16,8 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearProcedimiento("SP_ListarClientes");
+                datos.setearConsulta("SELECT * from Clientes");
+                //datos.setearProcedimiento("SP_ListarClientes");
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())
                 {

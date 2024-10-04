@@ -58,7 +58,8 @@ namespace TrabajoPracticoWeb
             VoucherNegocio voucherNegocio = new VoucherNegocio();
             int clienteId = objCliente.ID > 0 ? objCliente.ID : (int)Session["ClienteId"];           
             voucherNegocio.ActualizarVoucher(urlCodVoucher, clienteId, int.Parse(urlCodigoArt));
-            Response.Redirect("Default.aspx");
+            //Response.Redirect("Default.aspx");
+            Response.Redirect("PromocionesPasoCuatro.aspx");
         }
 
         protected void txtDocumento_TextChanged(object sender, EventArgs e)

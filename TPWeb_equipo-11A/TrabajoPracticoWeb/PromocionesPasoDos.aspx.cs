@@ -20,7 +20,7 @@ namespace TrabajoPracticoWeb
             if (Request.QueryString["codigo"].ToString() != null)
             {
                 ArticuloNegocio negocio = new ArticuloNegocio();
-                ListaArticulos = negocio.listarConSp();
+                ListaArticulos = negocio.listar();
                 codigo = Request.QueryString["codigo"].ToString();
             }
         }

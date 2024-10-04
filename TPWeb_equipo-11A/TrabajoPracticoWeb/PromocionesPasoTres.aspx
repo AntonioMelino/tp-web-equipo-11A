@@ -3,6 +3,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+    <div class="container">
+    <hr />
+
     <h1>Ingresá tus datos</h1>  
     <div class="container">
             <div class="row g-3 needs-validation" novalidate>
@@ -60,5 +64,6 @@
         </div>
         <div class="modal fade" id="modal2" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 </div>
+        </div>
 
 </asp:Content>

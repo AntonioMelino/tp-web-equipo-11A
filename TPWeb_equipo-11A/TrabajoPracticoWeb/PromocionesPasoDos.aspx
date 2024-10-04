@@ -3,6 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    
+    <div class="container">
+    <hr />
     <h1>Elegí tu premio</h1>
 
     <div class="row row-cols-1 row-cols-md-2 g-4">
@@ -30,5 +33,6 @@
         <% } %>
 
          </div>
+        </div>
 
 </asp:Content>

@@ -3,6 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    
+    <div class="container">
+    <hr />
 
     <h1>Nuestros productos</h1>
 
@@ -32,6 +35,8 @@
 
         <% } %>
     </div>
+
+        </div>
 
 
 </asp:Content>

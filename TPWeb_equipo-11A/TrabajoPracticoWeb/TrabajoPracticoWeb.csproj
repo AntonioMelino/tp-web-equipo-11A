@@ -70,6 +70,7 @@
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Imagenes.aspx" />
+    <Content Include="PromocionesPasoCuatro.aspx" />
     <Content Include="PromocionesPasoDos.aspx" />
     <Content Include="PromocionesPasoTres.aspx" />
     <Content Include="Web.config" />
@@ -107,6 +108,13 @@
     </Compile>
     <Compile Include="Imagenes.aspx.designer.cs">
       <DependentUpon>Imagenes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PromocionesPasoCuatro.aspx.cs">
+      <DependentUpon>PromocionesPasoCuatro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PromocionesPasoCuatro.aspx.designer.cs">
+      <DependentUpon>PromocionesPasoCuatro.aspx</DependentUpon>
     </Compile>
     <Compile Include="PromocionesPasoDos.aspx.cs">
       <DependentUpon>PromocionesPasoDos.aspx</DependentUpon>
