@@ -49,7 +49,7 @@ namespace TrabajoPracticoWeb
             Session["ClienteId"] = clienteId;  
             Session["objCliente"] = objCliente;  
 
-            DeshabilitarControlesDeCliente();
+            DeshabilitarCampos();
             btnParticipar.Visible = true;
         }
 
@@ -66,6 +66,16 @@ namespace TrabajoPracticoWeb
         {
             ClienteNegocio negocio = new ClienteNegocio();
             string dni = txtDocumento.Text;
+
+            if (string.IsNullOrWhiteSpace(dni))
+            {
+                lblMensaje.Visible = false;
+                HabilitarCampos();
+                btnDarAltaCliente.Visible = false;
+                btnParticipar.Visible = false;
+                return;
+            }
+
             if (negocio.existe(dni))
             {
                 objCliente = negocio.traerCliente(dni);
@@ -75,20 +85,32 @@ namespace TrabajoPracticoWeb
                 txtCiudad.Text = objCliente.Ciudad;
                 txtCodigoPostal.Text = objCliente.CP.ToString();
                 txtEmail.Text = objCliente.Email;
+                DeshabilitarCamposDoc();
+                lblMensaje.Visible = false;
                 btnDarAltaCliente.Visible = false;
                 btnParticipar.Visible = true;
                 Session["objCliente"] = objCliente;
             }
             else
             {
-                lblMensaje.Text = "El documento no tiene cliente asociado.";
+                lblMensaje.Text = "El documento no tiene cliente asociado, rellene los campos para darlo de alta.";
                 lblMensaje.Visible = true;
+                txtApellido.Text = "";
+                txtNombre.Text = "";
+                txtDireccion.Text = "";
+                txtCiudad.Text = "";
+                txtCodigoPostal.Text = "";
+                txtEmail.Text = "";
+                HabilitarCampos();
                 btnDarAltaCliente.Visible = true;
                 btnParticipar.Visible = false;
             }
         }
 
-        private void DeshabilitarControlesDeCliente()
+
+
+
+        private void DeshabilitarCampos() // Deshabilita todos los campos
         {
             txtDocumento.Enabled = false;
             txtNombre.Enabled = false;
@@ -97,6 +119,28 @@ namespace TrabajoPracticoWeb
             txtDireccion.Enabled = false;
             txtCiudad.Enabled = false;
             txtCodigoPostal.Enabled = false;
+        }
+
+        private void DeshabilitarCamposDoc()  // Deshabilita todos los campos menos el documento
+        {
+            
+            txtNombre.Enabled = false;
+            txtApellido.Enabled = false;
+            txtEmail.Enabled = false;
+            txtDireccion.Enabled = false;
+            txtCiudad.Enabled = false;
+            txtCodigoPostal.Enabled = false;
+            txtDocumento.Enabled = true;
+        }
+
+        private void HabilitarCampos() // Habilita todos los campos
+        {      
+            txtNombre.Enabled = true;
+            txtApellido.Enabled = true;
+            txtEmail.Enabled = true;
+            txtDireccion.Enabled = true;
+            txtCiudad.Enabled = true;
+            txtCodigoPostal.Enabled = true;
         }
     }
 }
