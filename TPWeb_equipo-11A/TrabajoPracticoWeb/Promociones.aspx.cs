@@ -7,17 +7,6 @@ using System.Web.UI.WebControls;
 using Dominio;
 using Negocio;
 
-//namespace TrabajoPracticoWeb
-//{
-//    public partial class WebForm2 : System.Web.UI.Page
-//    {
-//        protected void Page_Load(object sender, EventArgs e)
-//        {
-
-//        }
-//    }
-//}
-
 namespace TrabajoPracticoWeb
 {
     public partial class WebForm2 : Page

@@ -13,42 +13,7 @@ namespace Negocio
         {
             AccesoDatos datos = new AccesoDatos();
             return datos.VerificarCodigo(codigo);
-        }
-
-        //public Voucher traerVoucher(string codigo)
-        //{
-        //    AccesoDatos datos = new AccesoDatos();
-        //    Voucher aux = null;
-
-        //    try
-        //    {
-        //        datos.setearConsulta("SELECT CodigoVoucher, IdCliente FROM Vouchers WHERE CodigoVoucher = @codigo");
-        //        datos.setearParametro("@codigo", codigo);
-        //        datos.ejecutarLectura();
-
-        //        if (datos.Lector.Read())
-        //        {
-        //            aux = new Voucher
-        //            {
-        //                CodigoVoucher = datos.Lector["CodigoVoucher"].ToString(),
-        //                Cliente = new Cliente
-        //                {
-        //                    ID = (int)datos.Lector["IdCliente"]
-        //                }
-        //            };
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-                
-        //        throw new Exception("Error al traer el voucher", ex);
-        //    }
-        //    finally
-        //    {
-        //        datos.cerrarConexion();
-        //    }
-
-        //    return aux;
+        }      
 
         public void participar(int codart, string codvoucher, int idcliente)
         {
@@ -70,6 +35,27 @@ namespace Negocio
                 datos.cerrarConexion();
             }
 
+        }
+
+        public void ActualizarVoucher(string codigoVoucher, int idCliente, int idArticulo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("UPDATE Vouchers SET IdCliente = @idCliente, FechaCanje = GETDATE(), IdArticulo = @idArticulo WHERE CodigoVoucher = @codigoVoucher");
+                datos.setearParametro("@idCliente", idCliente);
+                datos.setearParametro("@idArticulo", idArticulo);
+                datos.setearParametro("@codigoVoucher", codigoVoucher);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
         }
     }
 }
