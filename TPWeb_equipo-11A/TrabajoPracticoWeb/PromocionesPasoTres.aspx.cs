@@ -104,6 +104,16 @@ namespace TrabajoPracticoWeb
             //ScriptManager.RegisterStartupScript(Page, Page.GetType(), "modal1", "$('#modal1').modal();", true);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "modal1", "$('#modal1').modal('show');", true);
             //Response.Redirect("Default.aspx");
+
+            if (esValido)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "triggerEmailJs", "sendEmail();", true);
+            }
+            else
+            {
+                lblMensaje.Text = mensajeError;
+                lblMensaje.Visible = true;
+            }
         }
 
 

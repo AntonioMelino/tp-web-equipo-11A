@@ -1,7 +1,38 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="PromocionesPasoTres.aspx.cs" Inherits="TrabajoPracticoWeb.PromocionesPasoTres" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+    (function () {
+        emailjs.init({
+            publicKey: "wzMtTjt9hWI9Dr9lB",
+        });
+    })();
+
+
+    function sendEmail() {
+        var contactParams = {
+            to_name: document.getElementById('<%= txtNombre.ClientID %>').value,
+            from_name: 'Equipo 11',
+            from_email: document.getElementById('<%= txtEmail.ClientID %>').value,
+            voucher_code: '<%= urlCodVoucher %>', // Asegúrate de que esto se está seteando correctamente en el backend
+            message: "Tu código de promoción '" + '<%= urlCodVoucher %>' + "' ha sido canjeado exitosamente. ¡Disfruta de las recompensas!",
+        };
+
+        emailjs.send('service_t6eknb4', 'template_dgn2azp', contactParams)
+            .then(function (response) {
+                console.log('GENIAL!', response.status, response.text);
+                alert('Email enviado exitosamente!');
+            }, function (error) {
+                console.log('ERROR...', error);
+                alert('Falló el envío del email: ' + error);
+            });
+    }
+</script>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="container">
