@@ -1,14 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="TrabajoPracticoWeb.Formulario_web1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-    <!-- Estilos personalizados -->
-    <style>
-        .carousel-inner img {
-            width: 100%;
-            height: 90vh;
-            object-fit: cover;
-        }
-    </style>
+    <link href="<%= ResolveUrl("~/Content/estilos.css") %>" rel="stylesheet" type="text/css" />
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    
@@ -37,8 +31,8 @@
     <div class="carousel-item">
       <img src="https://i.pinimg.com/564x/c8/fd/f7/c8fdf7fd61e5b7a2971b57325216ce03.jpg" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
-        <h5>SOMOS EL TEAM 11A</h5>
-        <p>Este es nuestro proyecto</p>
+        <h5>Tu tienda de informática de confianza</h5>
+        <p>Ofrecemos productos de alta calidad y servicio excepcional para todas tus necesidades tecnológicas.</p>
       </div>
     </div>
   </div>
@@ -51,5 +45,58 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
+
+
+    <!-- ABOUT -->
+<section id="about" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center" data-aos="fade-down" data-aos-delay="50">
+                <div class="section-title">
+                    <h1 class="display-4 fw-semibold">¿Por qué elegirnos?</h1>
+                    <div class="line"></div>
+                    <p>En nuestra tienda de informática, nos apasiona ofrecerte la mejor experiencia y productos de calidad.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-between align-items-center">
+            <div class="col-lg-6" data-aos="fade-down" data-aos-delay="50">
+                <img src="https://i.pinimg.com/564x/12/52/0e/12520e6a9648abb7c452545d6d836b3e.jpg" alt="">
+            </div>
+            <div data-aos="fade-down" data-aos-delay="150" class="col-lg-5">
+                <h1>Somos la mejor tienda de informática</h1>
+                <p class="mt-3 mb-4">Ofrecemos productos de última tecnología y un servicio al cliente excepcional que te hará sentir como en casa.</p>
+                <div class="d-flex pt-4 mb-3">
+                    <div class="iconbox me-4">
+                        <i class="ri-mail-send-fill"></i>
+                    </div>
+                    <div>
+                        <h5>Amplia gama de productos</h5>
+                        <p>Desde computadoras hasta periféricos, tenemos todo lo que necesitas para tu hogar o negocio.</p>
+                    </div>
+                </div>
+                <div class="d-flex mb-3">
+                    <div class="iconbox me-4">
+                        <i class="ri-user-5-fill"></i>
+                    </div>
+                    <div>
+                        <h5>Asesoría personalizada</h5>
+                        <p>Nuestro equipo de expertos está listo para ayudarte a elegir el producto perfecto para ti.</p>
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <div class="iconbox me-4">
+                        <i class="ri-rocket-2-fill"></i>
+                    </div>
+                    <div>
+                        <h5>Compromiso con la calidad</h5>
+                        <p>Trabajamos solo con marcas de confianza para garantizar tu satisfacción y seguridad.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
         
 </asp:Content>

@@ -67,6 +67,7 @@
   <ItemGroup>
     <Content Include="CatalogoArticulos.aspx" />
     <Content Include="ClientesLista.aspx" />
+    <Content Include="Content\estilos.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Imagenes.aspx" />
