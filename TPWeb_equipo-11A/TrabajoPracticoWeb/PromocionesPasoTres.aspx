@@ -1,49 +1,21 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="PromocionesPasoTres.aspx.cs" Inherits="TrabajoPracticoWeb.PromocionesPasoTres" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-<script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-</script>
-<script type="text/javascript">
-    (function () {
-        emailjs.init({
-            publicKey: "wzMtTjt9hWI9Dr9lB",
-        });
-    })();
-
-
-    function sendEmail() {
-        var contactParams = {
-            to_name: document.getElementById('<%= txtNombre.ClientID %>').value,
-            from_name: 'Equipo 11',
-            from_email: document.getElementById('<%= txtEmail.ClientID %>').value,
-            voucher_code: '<%= urlCodVoucher %>', // Asegúrate de que esto se está seteando correctamente en el backend
-            message: "Tu código de promoción '" + '<%= urlCodVoucher %>' + "' ha sido canjeado exitosamente. ¡Disfruta de las recompensas!",
-        };
-
-        emailjs.send('service_t6eknb4', 'template_dgn2azp', contactParams)
-            .then(function (response) {
-                console.log('GENIAL!', response.status, response.text);
-                alert('Email enviado exitosamente!');
-            }, function (error) {
-                console.log('ERROR...', error);
-                alert('Falló el envío del email: ' + error);
-            });
-    }
-</script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript" src="Content/funcionesEmail.js"></script>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="container">
-    <hr />
+        <hr />
 
-    <h1>Ingresá tus datos</h1>  
-    <div class="container">
+        <h1>Ingresá tus datos</h1>
+        <div class="container">
             <div class="row g-3 needs-validation" novalidate>
                 <div class="col-12">
                     <label for="validationCustom00" class="form-label">Documento</label>
-                    <asp:TextBox ID="txtDocumento" OnTextChanged="txtDocumento_TextChanged" CssClass="form-control" placeholder="Ingrese su DNI" AutoPostBack=true required runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtDocumento" OnTextChanged="txtDocumento_TextChanged" CssClass="form-control" placeholder="Ingrese su DNI" AutoPostBack="true" required runat="server"></asp:TextBox>
                     <div class="valid-feedback">Looks good!</div>
                 </div>
                 <asp:Label ID="lblMensaje" runat="server" CssClass="text-danger mt-2" Visible="false"></asp:Label>
@@ -101,7 +73,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">
-                        <asp:Label ID="lblModalTitle" runat="server" Text="">Estas participando</asp:Label>
+                            <asp:Label ID="lblModalTitle" runat="server" Text="">Estas participando</asp:Label>
                         </h4>
                     </div>
                     <div class="modal-body">
@@ -109,7 +81,7 @@
                     </div>
                     <div class="modal-footer">
                         <a href="Promociones.aspx" class="btn btn-info">Promociones</a>
-                   </div>
+                    </div>
                 </div>
             </div>
         </div>

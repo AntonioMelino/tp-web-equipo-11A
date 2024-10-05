@@ -21,11 +21,11 @@ namespace TrabajoPracticoWeb
         {
             if (!IsPostBack)
             {
-                objCliente = new Cliente(); 
+                objCliente = new Cliente();
             }
             else
             {
-                objCliente = Session["objCliente"] as Cliente; 
+                objCliente = Session["objCliente"] as Cliente;
             }
 
             urlCodigoArt = Request.QueryString["id"].ToString();
@@ -71,7 +71,7 @@ namespace TrabajoPracticoWeb
             {
                 lblMensaje.Text = mensajeError;
                 lblMensaje.Visible = true;
-                return;  
+                return;
             }
 
             if (clienteNegocio.existe(dni))
@@ -107,12 +107,8 @@ namespace TrabajoPracticoWeb
 
             if (esValido)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "triggerEmailJs", "sendEmail();", true);
-            }
-            else
-            {
-                lblMensaje.Text = mensajeError;
-                lblMensaje.Visible = true;
+                string script = $"sendEmail('{txtNombre.Text}', '{txtEmail.Text}', '{urlCodVoucher}');";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "triggerEmailJs", script, true);
             }
         }
 
@@ -126,7 +122,7 @@ namespace TrabajoPracticoWeb
             if (string.IsNullOrWhiteSpace(dni))
             {
                 lblMensaje.Visible = false;
-                HabilitarCampos();               
+                HabilitarCampos();
                 btnParticipar.Visible = false;
                 return;
             }
@@ -178,7 +174,7 @@ namespace TrabajoPracticoWeb
 
         private void DeshabilitarCamposDoc()  // Deshabilita todos los campos menos el documento
         {
-            
+
             txtNombre.Enabled = false;
             txtApellido.Enabled = false;
             txtEmail.Enabled = false;
@@ -189,7 +185,7 @@ namespace TrabajoPracticoWeb
         }
 
         private void HabilitarCampos() // Habilita todos los campos
-        {      
+        {
             txtNombre.Enabled = true;
             txtApellido.Enabled = true;
             txtEmail.Enabled = true;
@@ -204,7 +200,7 @@ namespace TrabajoPracticoWeb
             {
                 if (!char.IsLetterOrDigit(c))
                 {
-                    return false; 
+                    return false;
                 }
             }
             return true;
