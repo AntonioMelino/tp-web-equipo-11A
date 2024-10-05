@@ -1,6 +1,5 @@
-﻿body
-{
-   
+﻿body {
+    font-family: 'Montserrat', sans-serif;
 }
 
 * {
@@ -48,6 +47,7 @@
 /* FOOTER */
 footer {
     padding-top: 20px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .footer-top {
@@ -65,6 +65,7 @@ footer li,
 footer p,
 footer a {
     color: rgba(255,255,255,0.7);
+    font-family: 'Montserrat', sans-serif;
 }
 
 footer ul {
@@ -94,3 +95,4 @@ footer .line {
         background-color: var(--c-brand);
         color: white;
     }
+

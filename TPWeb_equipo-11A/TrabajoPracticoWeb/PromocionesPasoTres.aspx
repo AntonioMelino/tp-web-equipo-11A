@@ -63,7 +63,24 @@
             </div>
         </div>
         <div class="modal fade" id="modal2" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-</div>
         </div>
-
+        <!-- Modal -->
+        <div class="modal fade" id="modal1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">
+                        <asp:Label ID="lblModalTitle" runat="server" Text="">Estas participando</asp:Label>
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <asp:Label ID="lblModalBody" runat="server" Text="">Ya estas participando correctamente.</asp:Label>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="Promociones.aspx" class="btn btn-info">Promociones</a>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </asp:Content>

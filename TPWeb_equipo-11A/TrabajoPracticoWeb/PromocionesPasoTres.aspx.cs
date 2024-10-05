@@ -100,7 +100,10 @@ namespace TrabajoPracticoWeb
             int clienteIdFinal = objCliente.ID > 0 ? objCliente.ID : (int)Session["ClienteId"];
             voucherNegocio.ActualizarVoucher(urlCodVoucher, clienteIdFinal, int.Parse(urlCodigoArt));
 
-            Response.Redirect("PromocionesPasoCuatro.aspx");
+            //Response.Redirect("PromocionesPasoCuatro.aspx");
+            //ScriptManager.RegisterStartupScript(Page, Page.GetType(), "modal1", "$('#modal1').modal();", true);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "modal1", "$('#modal1').modal('show');", true);
+            //Response.Redirect("Default.aspx");
         }
 
 
