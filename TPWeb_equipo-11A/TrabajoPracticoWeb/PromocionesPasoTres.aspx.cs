@@ -1,4 +1,5 @@
 ﻿using Dominio;
+using negocio;
 using Negocio;
 using System;
 using System.Collections.Generic;
@@ -99,17 +100,57 @@ namespace TrabajoPracticoWeb
 
             int clienteIdFinal = objCliente.ID > 0 ? objCliente.ID : (int)Session["ClienteId"];
             voucherNegocio.ActualizarVoucher(urlCodVoucher, clienteIdFinal, int.Parse(urlCodigoArt));
+          
+            string asunto = "Código de Promoción Canjeado";
+            string cuerpo = $"Hola {txtNombre.Text}, tu código de promoción '{urlCodVoucher}' ha sido canjeado exitosamente ¡Disfruta de las recompensas!";
+            
+            EmailService emailService = new EmailService();
+            emailService.armarCorreo(txtEmail.Text, asunto, cuerpo);
+            try
+            {
+                emailService.enviarEmail();
+            }
+            catch (Exception ex)
+            {
+                Session.Add("error", ex);
+            }
 
             //Response.Redirect("PromocionesPasoCuatro.aspx");
             //ScriptManager.RegisterStartupScript(Page, Page.GetType(), "modal1", "$('#modal1').modal();", true);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "modal1", "$('#modal1').modal('show');", true);
             //Response.Redirect("Default.aspx");
 
-            if (esValido)
-            {
-                string script = $"sendEmail('{txtNombre.Text}', '{txtEmail.Text}', '{urlCodVoucher}');";
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "triggerEmailJs", script, true);
-            }
+            ///----------------------------------------
+            //if (esValido)
+            //{
+            //    string script = $"sendEmail('{txtNombre.Text}', '{txtEmail.Text}', '{urlCodVoucher}');";
+            //    ScriptManager.RegisterStartupScript(this, this.GetType(), "triggerEmailJs", script, true);
+            //}
+
+
+            //            emailjs.init({
+            //            publicKey: "wzMtTjt9hWI9Dr9lB",
+            //});
+
+
+            //            function sendEmail(to_name, from_email, voucher_code)
+            //            {
+            //                var contactParams = {
+            //        to_name: to_name,
+            //        from_name: 'Equipo 11',
+            //        from_email: from_email,
+            //        voucher_code: voucher_code,
+            //        message: "Tu código de promoción '" + voucher_code + "' ha sido canjeado exitosamente. ¡Disfruta de las recompensas!",
+            //    };
+
+            //        emailjs.send('service_t6eknb4', 'template_dgn2azp', contactParams)
+            //        .then(function (response) {
+            //            console.log('ENVIADO', response.status, response.text);
+            //        }, function(error)
+            //        {
+            //            console.log('ERROR', error);
+            //        });
+            //}
         }
 
 
@@ -198,7 +239,7 @@ namespace TrabajoPracticoWeb
         {
             foreach (char c in codigoPostal)
             {
-                if (!char.IsLetterOrDigit(c))
+                if (!char.IsDigit(c))
                 {
                     return false;
                 }
