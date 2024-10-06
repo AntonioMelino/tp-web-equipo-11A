@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace Negocio
 {
-    public class VoucherNegocio // Cambiado de 'internal' a 'public'
+    public class VoucherNegocio
     {
         public static bool VerificarCodigo(string codigo)
         {
@@ -56,6 +57,6 @@ namespace Negocio
             {
                 datos.cerrarConexion();
             }
-        }
+        }     
     }
 }

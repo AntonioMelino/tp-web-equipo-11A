@@ -17,11 +17,19 @@ namespace TrabajoPracticoWeb
         public string codigo { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["codigo"].ToString() != null)
+            if (Session["VoucherValido"] == null || !(bool)Session["VoucherValido"])
             {
-                ArticuloNegocio negocio = new ArticuloNegocio();
-                ListaArticulos = negocio.listar();
-                codigo = Request.QueryString["codigo"].ToString();
+                Response.Redirect("Default.aspx");
+            }
+
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["codigo"] != null)
+                {
+                    ArticuloNegocio negocio = new ArticuloNegocio();
+                    ListaArticulos = negocio.listar();
+                    codigo = Request.QueryString["codigo"].ToString();
+                }
             }
         }
     }

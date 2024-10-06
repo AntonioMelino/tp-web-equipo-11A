@@ -20,6 +20,11 @@ namespace TrabajoPracticoWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["VoucherValido"] == null || !(bool)Session["VoucherValido"])
+            {
+                Response.Redirect("Default.aspx");
+            }
+
             if (!IsPostBack)
             {
                 objCliente = new Cliente();
@@ -114,46 +119,16 @@ namespace TrabajoPracticoWeb
             {
                 Session.Add("error", ex);
             }
-
-            //Response.Redirect("PromocionesPasoCuatro.aspx");
-            //ScriptManager.RegisterStartupScript(Page, Page.GetType(), "modal1", "$('#modal1').modal();", true);
+          
             ScriptManager.RegisterStartupScript(this, this.GetType(), "modal1", "$('#modal1').modal('show');", true);
-            //Response.Redirect("Default.aspx");
-
-            ///----------------------------------------
-            //if (esValido)
-            //{
-            //    string script = $"sendEmail('{txtNombre.Text}', '{txtEmail.Text}', '{urlCodVoucher}');";
-            //    ScriptManager.RegisterStartupScript(this, this.GetType(), "triggerEmailJs", script, true);
-            //}
-
-
-            //            emailjs.init({
-            //            publicKey: "wzMtTjt9hWI9Dr9lB",
-            //});
-
-
-            //            function sendEmail(to_name, from_email, voucher_code)
-            //            {
-            //                var contactParams = {
-            //        to_name: to_name,
-            //        from_name: 'Equipo 11',
-            //        from_email: from_email,
-            //        voucher_code: voucher_code,
-            //        message: "Tu código de promoción '" + voucher_code + "' ha sido canjeado exitosamente. ¡Disfruta de las recompensas!",
-            //    };
-
-            //        emailjs.send('service_t6eknb4', 'template_dgn2azp', contactParams)
-            //        .then(function (response) {
-            //            console.log('ENVIADO', response.status, response.text);
-            //        }, function(error)
-            //        {
-            //            console.log('ERROR', error);
-            //        });
-            //}
+            
         }
 
-
+        protected void btnVolverInicio_Click(object sender, EventArgs e)
+        {
+            Session["VoucherValido"] = null;
+            Response.Redirect("Default.aspx");
+        }
 
         protected void txtDocumento_TextChanged(object sender, EventArgs e)
         {
@@ -202,7 +177,7 @@ namespace TrabajoPracticoWeb
 
 
 
-        private void DeshabilitarCampos() // Deshabilita todos los campos
+        private void DeshabilitarCampos()
         {
             txtDocumento.Enabled = false;
             txtNombre.Enabled = false;
@@ -225,7 +200,7 @@ namespace TrabajoPracticoWeb
             txtDocumento.Enabled = true;
         }
 
-        private void HabilitarCampos() // Habilita todos los campos
+        private void HabilitarCampos() 
         {
             txtNombre.Enabled = true;
             txtApellido.Enabled = true;

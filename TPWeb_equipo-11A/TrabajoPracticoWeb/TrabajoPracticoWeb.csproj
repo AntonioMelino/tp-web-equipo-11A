@@ -99,16 +99,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CatalogoArticulos.aspx" />
-    <Content Include="ClientesLista.aspx" />
     <Content Include="Content\estilos.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Imagenes.aspx" />
-    <Content Include="PromocionesPasoCuatro.aspx" />
     <Content Include="PromocionesPasoDos.aspx" />
     <Content Include="PromocionesPasoTres.aspx" />
     <Content Include="Web.config" />
-    <Content Include="ArticulosLista.aspx" />
     <Content Include="Promociones.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -118,13 +115,6 @@
     </Compile>
     <Compile Include="CatalogoArticulos.aspx.designer.cs">
       <DependentUpon>CatalogoArticulos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ClientesLista.aspx.cs">
-      <DependentUpon>ClientesLista.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ClientesLista.aspx.designer.cs">
-      <DependentUpon>ClientesLista.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -142,13 +132,6 @@
     </Compile>
     <Compile Include="Imagenes.aspx.designer.cs">
       <DependentUpon>Imagenes.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="PromocionesPasoCuatro.aspx.cs">
-      <DependentUpon>PromocionesPasoCuatro.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="PromocionesPasoCuatro.aspx.designer.cs">
-      <DependentUpon>PromocionesPasoCuatro.aspx</DependentUpon>
     </Compile>
     <Compile Include="PromocionesPasoDos.aspx.cs">
       <DependentUpon>PromocionesPasoDos.aspx</DependentUpon>
@@ -171,13 +154,6 @@
     </Compile>
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
-    </Compile>
-    <Compile Include="ArticulosLista.aspx.cs">
-      <DependentUpon>ArticulosLista.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ArticulosLista.aspx.designer.cs">
-      <DependentUpon>ArticulosLista.aspx</DependentUpon>
     </Compile>
     <Compile Include="Promociones.aspx.cs">
       <DependentUpon>Promociones.aspx</DependentUpon>

@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="PromocionesPasoTres.aspx.cs" Inherits="TrabajoPracticoWeb.PromocionesPasoTres" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">   
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -75,10 +75,10 @@
                         </h4>
                     </div>
                     <div class="modal-body">
-                        <asp:Label ID="lblModalBody" runat="server" Text="">Gracias por utilizar tu código. Se ha enviado una notificacion a su email! (Revisar correo no deseado).</asp:Label>
+                        <asp:Label ID="lblModalBody" runat="server" Text="Gracias por utilizar tu código. Se ha enviado una notificacion a su email! (Revisar correo no deseado)."></asp:Label>
                     </div>
                     <div class="modal-footer">
-                        <a href="Default.aspx" class="btn btn-info">Volver al Inicio</a>
+                        <asp:Button ID="btnVolverInicio" runat="server" Text="Volver al Inicio" CssClass="btn btn-info" OnClick="btnVolverInicio_Click" />
                     </div>
                 </div>
             </div>
