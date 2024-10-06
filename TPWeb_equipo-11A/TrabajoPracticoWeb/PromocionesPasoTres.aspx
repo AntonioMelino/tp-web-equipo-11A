@@ -1,8 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="PromocionesPasoTres.aspx.cs" Inherits="TrabajoPracticoWeb.PromocionesPasoTres" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <%--<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script type="text/javascript" src="Content/funcionesEmail.js"></script>--%>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">   
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -73,14 +71,14 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">
-                            <asp:Label ID="lblModalTitle" runat="server" Text="">Estas participando</asp:Label>
+                            <asp:Label ID="lblModalTitle" runat="server" Text="">Codigo canjeado</asp:Label>
                         </h4>
                     </div>
                     <div class="modal-body">
-                        <asp:Label ID="lblModalBody" runat="server" Text="">Ya estas participando correctamente.</asp:Label>
+                        <asp:Label ID="lblModalBody" runat="server" Text="">Gracias por utilizar tu código. Se ha enviado una notificacion a su email! (Revisar correo no deseado).</asp:Label>
                     </div>
                     <div class="modal-footer">
-                        <a href="Promociones.aspx" class="btn btn-info">Promociones</a>
+                        <a href="Default.aspx" class="btn btn-info">Volver al Inicio</a>
                     </div>
                 </div>
             </div>

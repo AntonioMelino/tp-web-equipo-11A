@@ -4,17 +4,35 @@
 
 * {
     box-sizing: border-box;
-    font-family: 'Work Sans';
+    font-family: 'Montserrat';
     margin: 0;
     padding: 0;
-    
 }
 /* CARRUSEL HOME */
 .carousel-inner img {
-    width: 100%;
+    width: 90%;
     height: 90vh;
     object-fit: cover;
 }
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5); 
+    border-radius: 10px; 
+    padding: 20px; 
+    font-size: 2rem; 
+    color: white; 
+}
+
+.carousel-caption h5 {
+        font-size: 2rem; 
+        color: white; 
+}
+
+.carousel-caption p {
+        font-size: 1.5rem; 
+        color: white; 
+}
+
 
 /* PROMOCIONES */
 #promociones{

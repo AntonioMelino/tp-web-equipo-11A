@@ -41,7 +41,7 @@
                         </h4>
                     </div>
                     <div class="modal-body">
-                        <asp:Label ID="Label2" runat="server" Text="Voucher correcto, canje su premio!"></asp:Label>
+                        <asp:Label ID="Label2" runat="server" Text="Voucher correcto, canjee su premio!"></asp:Label>
                     </div>
                     <div class="modal-footer">
                         <asp:Button ID="btnEnviarCodigo" runat="server" Text="Canjear premio" CssClass="btn btn-primary" OnClick="btnEnviarCodigo_Click" />
