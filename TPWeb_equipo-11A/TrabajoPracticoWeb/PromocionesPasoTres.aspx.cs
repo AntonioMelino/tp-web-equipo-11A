@@ -23,6 +23,16 @@ namespace TrabajoPracticoWeb
             if (Session["VoucherValido"] == null || !(bool)Session["VoucherValido"])
             {
                 Response.Redirect("Default.aspx");
+                return;
+            }
+
+            urlCodigoArt = Request.QueryString["id"] != null ? Request.QueryString["id"].ToString() : null;
+            urlCodVoucher = Request.QueryString["codigo"] != null ? Request.QueryString["codigo"].ToString() : null;
+
+            if (string.IsNullOrEmpty(urlCodigoArt) || string.IsNullOrEmpty(urlCodVoucher))
+            {
+                Response.Redirect("Default.aspx");
+                return;
             }
 
             if (!IsPostBack)
@@ -34,8 +44,6 @@ namespace TrabajoPracticoWeb
                 objCliente = Session["objCliente"] as Cliente;
             }
 
-            urlCodigoArt = Request.QueryString["id"].ToString();
-            urlCodVoucher = Request.QueryString["codigo"].ToString();
         }
 
 

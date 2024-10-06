@@ -19,7 +19,7 @@ namespace negocio
         public EmailService()
         {
             server = new SmtpClient();
-            server.Credentials = new NetworkCredential("olvnass@gmail.com", "gqwbaiirnvjzbjrq"); // Contraseña de aplicacion, no es la del GMAIL real
+            server.Credentials = new NetworkCredential("olvnass@gmail.com", "gqwbaiirnvjzbjrq"); // Contraseña de aplicacion, no es la del gmail real.
             server.EnableSsl = true;
             server.Port = 587;
             server.Host = "smtp.gmail.com";

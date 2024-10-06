@@ -100,5 +100,13 @@ namespace Negocio
             int count = (int)ejecutarEscalar();
             return count > 0;
         }
+
+        public bool VerificarSiCodigoCanjeado(string codigo)
+        {
+            setearConsulta("SELECT COUNT(*) FROM Vouchers WHERE CodigoVoucher = @Codigo AND FechaCanje IS NOT NULL");
+            setearParametro("@Codigo", codigo);
+            int count = (int)ejecutarEscalar();
+            return count > 0;
+        }
     }
 }

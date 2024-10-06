@@ -20,6 +20,7 @@ namespace TrabajoPracticoWeb
             if (Session["VoucherValido"] == null || !(bool)Session["VoucherValido"])
             {
                 Response.Redirect("Default.aspx");
+                return;
             }
 
             if (!IsPostBack)
